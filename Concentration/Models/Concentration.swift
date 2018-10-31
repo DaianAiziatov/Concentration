@@ -11,15 +11,27 @@ import Foundation
 class Concentartion {
     
     var cards = Array<Card>()
-    
+    var flipCount = 0
+    var scorePoints = 0
     var indexOfOneAndOnlyOneFacedUpCard: Int?
     
     func chooseCard(at index: Int) {
+        flipCount += 1
         if !cards[index].isMatched {
             if let matchIndex = indexOfOneAndOnlyOneFacedUpCard, matchIndex != index {
                 if cards[matchIndex].identifier == cards[index].identifier {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
+                    scorePoints += 2
+                } else {
+                    if cards[matchIndex].wasMismatched {
+                        scorePoints -= 1
+                    }
+                    if cards[index].wasMismatched {
+                        scorePoints -= 1
+                    }
+                    cards[matchIndex].wasMismatched = true
+                    cards[index].wasMismatched = true
                 }
                 cards[index].isFacedUp = true
                 indexOfOneAndOnlyOneFacedUpCard = nil
@@ -34,10 +46,12 @@ class Concentartion {
     }
     
     init(numberPairsOfCards: Int) {
+        flipCount = 0
+        scorePoints = 0
         for _ in 1...numberPairsOfCards {
             let card = Card()
             cards += [card, card]
         }
-        // TODO: shuffle the cards
+        cards.shuffle()
     }
 }

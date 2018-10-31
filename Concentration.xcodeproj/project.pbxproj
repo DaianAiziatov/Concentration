@@ -14,6 +14,7 @@
 		2BFE14512188E69600581320 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BFE144F2188E69600581320 /* LaunchScreen.storyboard */; };
 		2BFE14592188EFE500581320 /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE14582188EFE500581320 /* Concentration.swift */; };
 		2BFE145B2188F09A00581320 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE145A2188F09A00581320 /* Card.swift */; };
+		2BFE1486218A0CB700581320 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE1485218A0CB700581320 /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		2BFE14522188E69600581320 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BFE14582188EFE500581320 /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
 		2BFE145A2188F09A00581320 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		2BFE1485218A0CB700581320 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +60,41 @@
 		2BFE14452188E69400581320 /* Concentration */ = {
 			isa = PBXGroup;
 			children = (
+				2BFE145E2189082700581320 /* Controllers */,
+				2BFE145D2189081600581320 /* Views */,
+				2BFE145C218907FA00581320 /* Models */,
 				2BFE14462188E69400581320 /* AppDelegate.swift */,
-				2BFE14482188E69400581320 /* ViewController.swift */,
-				2BFE144A2188E69400581320 /* Main.storyboard */,
 				2BFE144D2188E69600581320 /* Assets.xcassets */,
-				2BFE144F2188E69600581320 /* LaunchScreen.storyboard */,
 				2BFE14522188E69600581320 /* Info.plist */,
+			);
+			path = Concentration;
+			sourceTree = "<group>";
+		};
+		2BFE145C218907FA00581320 /* Models */ = {
+			isa = PBXGroup;
+			children = (
 				2BFE14582188EFE500581320 /* Concentration.swift */,
 				2BFE145A2188F09A00581320 /* Card.swift */,
 			);
-			path = Concentration;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2BFE145D2189081600581320 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE144A2188E69400581320 /* Main.storyboard */,
+				2BFE144F2188E69600581320 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2BFE145E2189082700581320 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE1485218A0CB700581320 /* Theme.swift */,
+				2BFE14482188E69400581320 /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +170,7 @@
 			files = (
 				2BFE14492188E69400581320 /* ViewController.swift in Sources */,
 				2BFE14472188E69400581320 /* AppDelegate.swift in Sources */,
+				2BFE1486218A0CB700581320 /* Theme.swift in Sources */,
 				2BFE14592188EFE500581320 /* Concentration.swift in Sources */,
 				2BFE145B2188F09A00581320 /* Card.swift in Sources */,
 			);
