@@ -11,9 +11,28 @@ import Foundation
 class Concentartion {
     
     var cards = Array<Card>()
-    var flipCount = 0
-    var scorePoints = 0
-    var indexOfOneAndOnlyOneFacedUpCard: Int?
+    private(set) var flipCount = 0
+    private(set) var scorePoints = 0
+    private var indexOfOneAndOnlyOneFacedUpCard: Int? {
+        get {
+            var foundIndex: Int?
+            for index in cards.indices {
+                if cards[index].isFacedUp {
+                    if foundIndex == nil {
+                        foundIndex = index
+                    } else {
+                        return nil
+                    }
+                 }
+            }
+            return foundIndex
+        }
+        set {
+            for index in cards.indices {
+                cards[index].isFacedUp = (index == newValue )
+            }
+        }
+    }
     
     func chooseCard(at index: Int) {
         flipCount += 1
@@ -34,12 +53,7 @@ class Concentartion {
                     cards[index].wasMismatched = true
                 }
                 cards[index].isFacedUp = true
-                indexOfOneAndOnlyOneFacedUpCard = nil
             } else {
-                for flipDownIndex in cards.indices {
-                    cards[flipDownIndex].isFacedUp = false
-                }
-                cards[index].isFacedUp = true
                 indexOfOneAndOnlyOneFacedUpCard = index
             }
         }

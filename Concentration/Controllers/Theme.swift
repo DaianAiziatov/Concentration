@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 struct Theme {
-    var emojiPack: [String]
-    var fontColor: UIColor
-    var backgroundColor: UIColor
+    private(set) var emojiPack: [String]
+    private(set) var fontColor: UIColor
+    private(set) var backgroundColor: UIColor
     
     static func getRandomTheme() -> Theme {
         var themes = [Theme]()
@@ -27,7 +27,7 @@ struct Theme {
         return themes[randomIndex]
     }
     
-    init(emojiPack: [String], fontColor: UIColor, backgroundColor: UIColor) {
+    private init(emojiPack: [String], fontColor: UIColor, backgroundColor: UIColor) {
         self.emojiPack = emojiPack
         self.fontColor = fontColor
         self.backgroundColor = backgroundColor
