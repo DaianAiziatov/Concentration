@@ -8,24 +8,15 @@
 
 import Foundation
 
-class Concentartion {
+struct Concentartion {
     
-    var cards = Array<Card>()
+    private(set) var cards = Array<Card>()
+    
     private(set) var flipCount = 0
     private(set) var scorePoints = 0
     private var indexOfOneAndOnlyOneFacedUpCard: Int? {
         get {
-            var foundIndex: Int?
-            for index in cards.indices {
-                if cards[index].isFacedUp {
-                    if foundIndex == nil {
-                        foundIndex = index
-                    } else {
-                        return nil
-                    }
-                 }
-            }
-            return foundIndex
+            return cards.indices.filter {cards[$0].isFacedUp}.oneAndOnly
         }
         set {
             for index in cards.indices {
@@ -34,11 +25,11 @@ class Concentartion {
         }
     }
     
-    func chooseCard(at index: Int) {
+    mutating func chooseCard(at index: Int) {
         flipCount += 1
         if !cards[index].isMatched {
             if let matchIndex = indexOfOneAndOnlyOneFacedUpCard, matchIndex != index {
-                if cards[matchIndex].identifier == cards[index].identifier {
+                if cards[matchIndex] == cards[index] {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
                     scorePoints += 2
@@ -67,5 +58,11 @@ class Concentartion {
             cards += [card, card]
         }
         cards.shuffle()
+    }
+}
+
+extension Collection {
+    var oneAndOnly: Element? {
+        return count == 1 ? first : nil
     }
 }

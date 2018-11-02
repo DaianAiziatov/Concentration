@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8Z-UH-y6Q">
-                                <rect key="frame" x="28" y="1676" width="190" height="60"/>
+                                <rect key="frame" x="92.666666666666686" y="698" width="190" height="60"/>
                                 <viewLayoutGuide key="safeArea" id="2HI-bS-uOo"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="New Game">
@@ -209,7 +209,7 @@
                                 <rect key="frame" x="16" y="372" width="343" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLk-tD-i1i">
-                                        <rect key="frame" x="0.0" y="0.0" width="168" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="167.66666666666666" height="40"/>
                                         <viewLayoutGuide key="safeArea" id="ABB-N6-br9"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -233,7 +233,7 @@
                             <constraint firstItem="cI3-RI-Ejr" firstAttribute="top" secondItem="y7U-4M-jsw" secondAttribute="bottom" id="1Eb-lB-oEB"/>
                             <constraint firstItem="zLk-tD-i1i" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="5E6-5T-p24"/>
                             <constraint firstItem="cI3-RI-Ejr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Ed0-qV-CPv"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="U8Z-UH-y6Q" secondAttribute="bottom" constant="16" id="P7Q-x5-6jZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="U8Z-UH-y6Q" secondAttribute="bottom" constant="20" id="P7Q-x5-6jZ"/>
                             <constraint firstItem="y7U-4M-jsw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="PB0-ei-2vs"/>
                             <constraint firstItem="U8Z-UH-y6Q" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="QVe-il-SQo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TFL-3n-N1g" secondAttribute="trailing" constant="16.000000000000028" id="RlO-pl-lGY"/>

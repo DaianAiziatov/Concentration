@@ -11,7 +11,10 @@ import UIKit
 class ViewController: UIViewController {
     
     lazy var game = Concentartion(numberPairsOfCards: numberPairsOfCards)
-    private var cardColor: UIColor?
+    private var cardColor = UIColor()
+    private var attributes: [NSAttributedString.Key: Any] = [
+            .strokeWidth : 5.0
+    ]
     
     private var numberPairsOfCards: Int {
         return (cardButtons.count + 1) / 2
@@ -43,8 +46,8 @@ class ViewController: UIViewController {
     }
     
     private func updateViewFromModel() {
-        flipCountsLabel.text = "Flips: \(game.flipCount)"
-        scoreLabel.text = "Score: \(game.scorePoints)"
+        flipCountsLabel.attributedText = NSAttributedString(string: "Flips: \(game.flipCount)", attributes: attributes)
+        scoreLabel.attributedText = NSAttributedString(string: "Score: \(game.scorePoints)", attributes: attributes)
         for index in cardButtons.indices {
             let button = cardButtons[index]
             let card = game.cards[index]
@@ -53,7 +56,7 @@ class ViewController: UIViewController {
                 button.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
             } else {
                 button.setTitle("", for: UIControl.State.normal)
-                button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : cardColor!
+                button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : cardColor
                 button.isEnabled = card.isMatched ? false : true
             }
             
@@ -61,17 +64,19 @@ class ViewController: UIViewController {
     }
     
 
-    private var emojiChoices = [String]()
-    private var emoji = [Int : String]()
+    private var emojiChoices = String()
+    private var emoji = [Card : String]()
     private func emoji(for card: Card) -> String {
-        if emoji[card.identifier] == nil, emojiChoices.count > 0 {
-            emoji[card.identifier] = emojiChoices.remove(at: emojiChoices.count.arc4random)
+        if emoji[card] == nil, emojiChoices.count > 0 {
+            let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.arc4random)
+            emoji[card] = String(emojiChoices.remove(at: randomStringIndex))
         }
-        return emoji[card.identifier] ?? "?"
+        return emoji[card] ?? "?"
     }
     
     private func loadTheme() {
         let theme = Theme.getRandomTheme()
+        attributes[.strokeColor] = theme.fontColor
         cardColor = theme.fontColor
         newGameButtonOutlet.setTitleColor(theme.fontColor, for: UIControl.State.normal)
         emojiChoices = theme.emojiPack
